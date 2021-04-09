@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using SimplePasswordCheck.Password.Service;
+using SimplePasswordCheck.Core.Password.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimplePasswordCheck.Benchmark.Password.Service
 {  
-    public class PasswordValidatorService_Benchmark
+    public class PasswordValidatorServiceBenchmark
     {
         [Params("AbTp9!fok",
                 "AbTp9!feka",
@@ -23,17 +23,17 @@ namespace SimplePasswordCheck.Benchmark.Password.Service
 
 
         [Benchmark]
-        public bool ValidatePasswordBenchmark()
+        public bool ValidatePasswordLinq()
         {
             var passwordValidator = new PasswordValidatorService();
             return passwordValidator.Validate(password);
         }
 
         [Benchmark]
-        public bool ValidatePasswordWithRegexdBenchmark()
+        public bool ValidatePasswordRegex()
         {
-            var passwordValidator = new PasswordValidatorService();
-            return passwordValidator.ValidateWithRegex(password);
+            var passwordValidator = new PasswordValidatorRegexService();
+            return passwordValidator.Validate(password);
         }
     }
 }

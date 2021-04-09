@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SimplePasswordCheck.Password.Service;
+using SimplePasswordCheck.Core.Password.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;

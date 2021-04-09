@@ -1,11 +1,11 @@
-﻿using SimplePasswordCheck.Password.Interfaces;
+﻿using SimplePasswordCheck.Core.Password.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SimplePasswordCheck.Password.Service
+namespace SimplePasswordCheck.Core.Password.Service
 {
     public class PasswordValidatorRegexService : IPasswordValidatorService
     {  

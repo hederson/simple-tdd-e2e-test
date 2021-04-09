@@ -1,11 +1,11 @@
-﻿using SimplePasswordCheck.Password.Interfaces;
+﻿using SimplePasswordCheck.Core.Password.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SimplePasswordCheck.Password.Service
+namespace SimplePasswordCheck.Core.Password.Service
 {
     public class PasswordValidatorService : IPasswordValidatorService
     {  
@@ -24,8 +24,7 @@ namespace SimplePasswordCheck.Password.Service
         };
 
         private readonly char[] specialCharactersAllowed = new char[]
-       {
-           //!@#$%^&*()-+
+       {           
             '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'
        };
         
@@ -34,29 +33,20 @@ namespace SimplePasswordCheck.Password.Service
             if (password.Length < 9)
                 return false;
 
-            bool containsNumber, contaisUpperLetter, containsLowerLetter, containsSpecialChar, duplicated;
+            bool invalidPassword = password.Any(letter => (password.Count(p => p == letter) > 1) || letter.Equals((char)32));
 
-            containsNumber = password.Any(letter => numbers.Any(n => n == letter));
-
-            contaisUpperLetter = password.Any(letter => upperCaseLetters.Any(u => u == letter));
-
-            containsLowerLetter = password.Any(letter => lowerCaseLetters.Any(l => l == letter));
-
-            containsSpecialChar = password.Any(letter => specialCharactersAllowed.Any(s => s == letter));
-            
-            duplicated = password.Any(letter => password.Count(p => p == letter) > 1);
-
-            return containsNumber && contaisUpperLetter && containsLowerLetter && containsSpecialChar && !duplicated;
-        }
-
-        public bool ValidateWithRegex(string password)
-        {
-            if (password.Length < 9)
+            if(invalidPassword)
+            {
                 return false;
+            }
 
-            var passValidation =  Regex.IsMatch(password, "^(?:([A-Za-z0-9!@#$%^&*\\(\\)\\-+])(?!.*\\1))*$");
+            bool validated = password.Any(letter =>                                                
+                                                (numbers.Any(n => n == letter) ||
+                                                upperCaseLetters.Any(u => u == letter) ||
+                                                lowerCaseLetters.Any(l => l == letter) ||
+                                                specialCharactersAllowed.Any(s => s == letter)));
 
-            return passValidation;
+            return validated;
         }
     }
 }

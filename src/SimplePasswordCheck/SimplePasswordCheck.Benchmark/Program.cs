@@ -1,6 +1,4 @@
-﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
-using SimplePasswordCheck.Password.Service;
+﻿using BenchmarkDotNet.Running;
 using System;
 
 namespace SimplePasswordCheck.Benchmark
