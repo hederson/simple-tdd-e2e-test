@@ -1,9 +1,34 @@
-# simple-tdd-e2e-test 
+# Api simples para validação de senhas
+### Execução e testes
 
-Foram feitas duas versões da validação de senha uma utilizando Linq e a outra Regex.
-Em geral a versão utilizando Linq teve um desempenho melhor.
+Para executar api basta executar os comandos na raiz do projeto
 
-Segue abaixo o Benchmark das duas
+```console
+dotnet build
+dotnet run --project SimplePasswordCheck
+```
+
+Para executar os testes unitários e de integração é necessário executar o comando abaixo
+
+```console
+dotnet test
+```
+
+### Considerações
+
+Foi utilizado o basico de Solid/DDD fiz todo o código dentro do projeto da API pois como era um exemplo muito simples não tinha necessidade de criar varios projetos.
+
+Foram feitas duas versões da validação de senha, uma utilizando Linq e outra Regex,a principio eu já desconfiava que a solução com Regex ficaria mais lenta, porem resolvi fazer o benchmark para validar.
+Em geral a versão utilizando Linq teve um desempenho melhor, como demonstrado no resultado, então ela foi utilizada na versão final da api.
+
+Para executar o benchmark basta executar o comando a baixo, porem abaixo do comando temos o resultado de uma exucução
+
+```console
+dotnet build
+dotnet run --project SimplePasswordCheck.Benchmark -c Release
+```
+
+Segue abaixo o Benchmark
 
 ```console
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1440 (1909/November2018Update/19H2)
