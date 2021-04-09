@@ -1,14 +1,14 @@
 # Api simples para validação de senhas
 ### Execução e testes
 
-Para executar api basta executar os comandos na raiz do projeto
+Para executar api execute os comandos na raiz da solution
 
 ```console
 dotnet build
 dotnet run --project SimplePasswordCheck
 ```
 
-Para executar os testes unitários e de integração é necessário executar o comando abaixo
+Para executar os testes unitários e de integração é execute o comando abaixo
 
 ```console
 dotnet test
@@ -21,14 +21,14 @@ Foi utilizado o basico de Solid/DDD fiz todo o código dentro do projeto da API 
 Foram feitas duas versões da validação de senha, uma utilizando Linq e outra Regex,a principio eu já desconfiava que a solução com Regex ficaria mais lenta, porem resolvi fazer o benchmark para validar.
 Em geral a versão utilizando Linq teve um desempenho melhor, como demonstrado no resultado, então ela foi utilizada na versão final da api.
 
-Para executar o benchmark basta executar o comando a baixo, porem abaixo do comando temos o resultado de uma exucução
+Para realizar o benchmark basta executar o comando abaixo.
 
 ```console
 dotnet build
 dotnet run --project SimplePasswordCheck.Benchmark -c Release
 ```
 
-Segue abaixo o Benchmark
+### Resultado Benchmark
 
 ```console
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.1440 (1909/November2018Update/19H2)
