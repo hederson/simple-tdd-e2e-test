@@ -19,7 +19,7 @@ namespace SimplePasswordCheck
     {   
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IPasswordValidatorService, PasswordValidatorRegexService>();
+            services.AddSingleton<IPasswordValidatorService, PasswordValidatorService>();
             services.AddSingleton<IPasswordValidatorAppService, PasswordValidatorAppService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
