@@ -8,7 +8,7 @@ dotnet build
 dotnet run --project SimplePasswordCheck
 ```
 
-Para executar os testes unitários e de integração é execute o comando abaixo
+Para executar os testes unitários e de integração execute o comando abaixo
 
 ```console
 dotnet test
@@ -18,7 +18,7 @@ dotnet test
 
 Foi utilizado o basico de Solid/DDD fiz todo o código dentro do projeto da API pois como era um exemplo muito simples não tinha necessidade de criar varios projetos.
 
-Foram feitas duas versões da validação de senha, uma utilizando Linq e outra Regex,a principio eu já desconfiava que a solução com Regex ficaria mais lenta, porem resolvi fazer o benchmark para validar.
+Foram feitas duas versões da validação de senha, uma utilizando Linq e outra Regex, a principio eu já desconfiava que a solução com Regex ficaria mais lenta, porem resolvi fazer o benchmark para validar.
 Em geral a versão utilizando Linq teve um desempenho melhor, como demonstrado no resultado, então ela foi utilizada na versão final da api.
 
 Para realizar o benchmark basta executar o comando abaixo.
