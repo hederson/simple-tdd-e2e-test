@@ -10,20 +10,20 @@ namespace SimplePasswordCheck.Core.Password.Service
     public class PasswordValidatorService : IPasswordValidatorService
     {  
 
-        private readonly char[] upperCaseLetters = new char[] {
+        private static readonly char[] UpperCaseLetters = new char[] {
                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
             };
 
-        private readonly char[] lowerCaseLetters = new char[] {
+        private static readonly char[] LowerCaseLetters = new char[] {
                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
             };
 
-        private readonly char[] numbers = new char[]
+        private static readonly char[] Numbers = new char[]
         {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
         };
 
-        private readonly char[] specialCharactersAllowed = new char[]
+        private static readonly char[] SpecialCharactersAllowed = new char[]
        {           
             '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'
        };
@@ -41,10 +41,10 @@ namespace SimplePasswordCheck.Core.Password.Service
             }
 
             bool validated = password.Any(letter =>                                                
-                                                (numbers.Any(n => n == letter) ||
-                                                upperCaseLetters.Any(u => u == letter) ||
-                                                lowerCaseLetters.Any(l => l == letter) ||
-                                                specialCharactersAllowed.Any(s => s == letter)));
+                                                (Numbers.Any(n => n == letter) ||
+                                                UpperCaseLetters.Any(u => u == letter) ||
+                                                LowerCaseLetters.Any(l => l == letter) ||
+                                                SpecialCharactersAllowed.Any(s => s == letter)));
 
             return validated;
         }
