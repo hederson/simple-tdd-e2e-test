@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimplePasswordCheck.Benchmark.Password.Service
 {  
+    [MemoryDiagnoser]
     public class PasswordValidatorServiceBenchmark
     {
         [Params("AbTp9!fok",
